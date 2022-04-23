@@ -58,7 +58,6 @@ app.get("/api/persons", (request, response) => {
     const phonebookData = JSON.parse(data);
     response.json(phonebookData);
   });
-  // response.json(phonebook);
 });
 
 // Get phonebook info
@@ -73,11 +72,6 @@ app.get("/info", (request, response) => {
     log(time);
     response.send(`<p>${phonebookInfo}</p><p>${time}</p>`);
   });
-  // const phonebookData = JSON.parse(phonebook);
-  // const phonebookInfo = `Phonebook has info for ${phonebook.length} people`;
-  // const time = new Date().toLocaleString();
-  // log(time);
-  // response.send(`<p>${phonebookInfo}</p><p>${time}</p>`);
 });
 
 // Get a single person
@@ -95,14 +89,6 @@ app.get("/api/persons/:id", (request, response) => {
       response.status(404).send({ message: "Person not found" });
     }
   });
-  // const phonebookData = JSON.parse(phonebook);
-  // const id = Number(request.params.id);
-  // const person = phonebook.find((person) => person.id === id);
-  // if (person) {
-  //   response.json(person);
-  // } else {
-  //   response.status(404).send({ message: "Person not found" });
-  // }
 });
 
 // Delete a single person
@@ -130,15 +116,6 @@ app.delete("/api/persons/:id", (request, response) => {
       response.status(404).send({ message: "Person not found" });
     }
   });
-  // const phonebookData = JSON.parse(data);
-  // const id = Number(request.params.id);
-  // const person = phonebook.find((person) => person.id === id);
-  // if (person) {
-  //   phonebook.splice(phonebook.indexOf(person), 1);
-  //   response.status(204).send({ message: "Person deleted" });
-  // } else {
-  //   response.status(404).send({ message: "Person not found" });
-  // }
 });
 
 // Create a new person in the phonebook
@@ -169,11 +146,6 @@ app.post("/api/persons", (request, response) => {
     }
   });
 });
-
-// const PORT = 3001;
-// app.listen(PORT, () => {
-//   console.log(`Server running on port ${PORT}`);
-// });
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
