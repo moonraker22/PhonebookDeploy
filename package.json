@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/moonraker22/PhonebookBackend.git"
+    "url": "git+https://github.com/moonraker22/PhonebookDeploy.git"
   },
   "author": "Zac Kesler (moonraker22)",
   "license": "MIT",
