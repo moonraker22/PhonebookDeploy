@@ -12,7 +12,16 @@ const password = process.argv[2];
 // const url = `mongodb+srv://fullstack:${password}@cluster0.o1opl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 const url = `mongodb+srv://moonraker22:${password}@fullstackopen2022.get1e.mongodb.net/phonebook?retryWrites=true&w=majority`;
 
-mongoose.connect(url);
+console.log("connecting to", url);
+
+mongoose
+  .connect(url)
+  .then((result) => {
+    console.log("connected to MongoDB");
+  })
+  .catch((error) => {
+    console.log("error connecting to MongoDB:", error.message);
+  });
 
 mongoose.connection.on("error", (err) => {
   console.log(err);
