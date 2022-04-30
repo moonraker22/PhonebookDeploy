@@ -53,10 +53,6 @@ app.get("/api/persons/:id", (request, response, next) => {
         response.status(404).send({ message: "Person not found" });
       }
     })
-    // .catch((err) => {
-    //   console.log(err);
-    //   response.status(400).send({ error: "malformatted id" });
-    // });
     .catch((error) => {
       console.log(error.message);
       next(error);
@@ -73,9 +69,6 @@ app.delete("/api/persons/:id", (request, response, next) => {
         response.status(404).send({ message: "Person not found" });
       }
     })
-    // .catch((err) => {
-    //   console.log(err);
-    // });
     .catch((error) => {
       console.log(error.message);
       next(error);
@@ -94,18 +87,19 @@ app.post("/api/persons", (request, response, next) => {
       name,
       number,
     });
-    person
-      .save()
-      .then((savedPerson) => {
-        response.json(savedPerson);
-      })
-      .catch((err) => {
-        console.log(err);
-        next(err);
-      });
+    person.save((error) => {
+      if (error) {
+        console.log(error.message);
+        response.json({ error });
+        next(error);
+      } else {
+        response.json(person);
+      }
+    });
   }
 });
 
+// Change a person's number
 app.put("/api/persons/:id", (request, response, next) => {
   const { name, number } = request.body;
   if (!name) {
