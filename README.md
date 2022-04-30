@@ -1,6 +1,6 @@
 ## Open Stack 2022 - PhoneBook Backend Deployment
 
-[Link to the frontend deployed app](https://phonebook-frontend.herokuapp.com/)
+[Link to the frontend deployed app](https://phonebook-backend-2022.herokuapp.com/)
 
 [Link to the deployed backend api](https://phonebook-backend-2022.herokuapp.com/api/persons/)
 
