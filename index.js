@@ -99,7 +99,7 @@ app.post("/api/persons", (request, response, next) => {
   }
 });
 
-// Change a person's number
+// Change/Update a person's number
 app.put("/api/persons/:id", (request, response, next) => {
   const { name, number } = request.body;
   if (!name) {
